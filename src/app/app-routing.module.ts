@@ -18,6 +18,11 @@ import { Role } from './core/models/role.module';
 
 const routes: Routes = [
   {
+  path: '',
+    redirectTo: "admin",
+    "pathMatch": "full"
+  },
+  {
     path: 'auth',
     loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
     //canActivate:[AuthGuard]
