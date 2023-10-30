@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CouponComponent } from './coupon.component';
 import { AddCouponComponent } from './add-coupon/add-coupon.component';
 
+
 const routes: Routes = [
   {
     path:"",
