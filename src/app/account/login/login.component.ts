@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
 
       this.authenticationService.login(uv).subscribe((cData: any) => {
         console.log(cData)
-        this.router.navigate(["/admin/dashboard"])
+        this.router.navigate(["/dashboard"])
        /* if(userObject.email=="admin@themesbrand.com")
         {
 
@@ -97,6 +97,7 @@ export class LoginComponent implements OnInit {
   }
 
   next(){
+    
   
   }
 

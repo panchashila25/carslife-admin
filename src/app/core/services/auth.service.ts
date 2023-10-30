@@ -26,7 +26,7 @@ export class AuthenticationService {
 
     login(data:any){
         console.log(data)
-        return this.http.post<any>(`${environment.baseURL}auth/authenticate`,data,{
+        return this.http.post<any>(`${environment.baseURL}auth`,data,{
           headers:{
             'Content-Type':'application/json'
           }
