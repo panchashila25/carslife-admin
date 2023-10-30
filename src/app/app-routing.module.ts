@@ -32,6 +32,7 @@ const routes: Routes = [
    },
    {
     path:'dashboard',
+    component:LayoutComponent,
     loadChildren:() => import('./dashboard/dashboard.module'). then(m=> m.DashboardModule)
    },
    {
