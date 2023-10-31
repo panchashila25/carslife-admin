@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../carslife-drivers"
+		},
+		{
+			"path": "../../../.."
+		},
+		{
+			"path": "../../../../../carslife-api"
+		},
+		{
+			"path": "../../../../../carslife-users"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "carslife-admin"
+	}
+}
