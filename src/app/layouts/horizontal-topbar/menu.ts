@@ -50,23 +50,23 @@ export const UserMENU: MenuItem[] = [
   link: '/admin/add-coupon',
 },
 
-{
-  id: 55,
-  label: 'Users',
-  icon: 'ri-account-circle-line',
-  link: '/admin/users',
-},
-{
-  id: 55,
-  label: 'Booking',
-  icon: 'bx bx-shopping-bag fs-22',
-  link: '/admin/bookings',
-},
-{
-  id: 55,
-  label: 'Drivers',
-  icon: 'bx bx-shopping-bag fs-22',
-  link: '/admin/drivers',
-},
+// {
+//   id: 55,
+//   label: 'Users',
+//   icon: 'ri-account-circle-line',
+//   link: '/admin/users',
+// },
+// {
+//   id: 55,
+//   label: 'Booking',
+//   icon: 'bx bx-shopping-bag fs-22',
+//   link: '/admin/bookings',
+// },
+// {
+//   id: 55,
+//   label: 'Drivers',
+//   icon: 'bx bx-shopping-bag fs-22',
+//   link: '/admin/drivers',
+// },
 
 ]
