@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-coupon',
@@ -12,10 +13,13 @@ export class CouponComponent implements OnInit {
   modalService: any;
   submitted: boolean | undefined;
 
-  constructor(public route:Router) { }
+  constructor(public route:Router, public modal:NgbModal) { }
 
   ngOnInit(): void {
   }
  
 
+  openModal(content:any){
+    this.modal.open(content,{centered: true, size:'md'})
+  }
 }
