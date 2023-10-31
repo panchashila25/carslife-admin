@@ -11,16 +11,17 @@ export class AddDriversComponent implements OnInit {
   password:any="";
   mobile:any="";
   status:any = "";
-  BillingAddress:any="";
-  CompanyName:any="";
-  Billingcity:any="";
-  BillingZipcode:any="";
-  BillingState:any="";
-  ShippingAddress:any="";
-  ShippingCity:any="";
-  ShippingState:any="";
-  ShippingZipcode:any="";
-  id:any = "";
+  Address:any="";
+  address:any="";
+  LicenseNo:any="";
+  LicenseDocument:any="";
+  GovernmentID:any="";
+  Age:any="";
+  CarDocument:any="";
+  Carname:any="";
+  CarNo:any="";
+  CarDoc:any="";
+  
   constructor() { }
 
   ngOnInit(): void {
