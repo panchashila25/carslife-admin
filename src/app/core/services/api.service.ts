@@ -66,9 +66,9 @@ register(data:any){
   }
 
 
-  // Update Itom
-  updateItem(id:any,data:any){
-    return this.http.put<any>(`${environment.baseURL}item/`+id,data,{
+  // Update driver
+  updateDriver(id:any,data:any){
+    return this.http.put<any>(`${environment.baseURL}driver/`+id,data,{
       headers: {
         'Content-Type': 'application/json'
       }
@@ -80,9 +80,9 @@ register(data:any){
 
 
 
-// DeleteItom
-  deleteItem(id:any){
-    return this.http.delete<any>(`${environment.baseURL}item/`+id,{
+// DeleteDriver
+  deleteDriver(id:any){
+    return this.http.delete<any>(`${environment.baseURL}driver/`+id,{
   })
   .pipe(map((data:any)=>{
     return data;
@@ -191,6 +191,13 @@ deleteOrders(id:any){
   return data;
 }))
 }
+
+onupload(data: any){
+  return this.http.post<any>(`${environment.baseURL}comman/upload`, data)
+    .pipe(map(data => {
+      return data;
+    }));
+  }
 
 
 
