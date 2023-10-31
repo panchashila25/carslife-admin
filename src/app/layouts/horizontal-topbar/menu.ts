@@ -12,7 +12,7 @@ export const AdminMENU: MenuItem[] = [
     id: 8,
     label: 'Coupon',
     icon: 'ri-apps-2-line',
-    link: '/admin/add-coupon',
+    link: '/admin/coupon',
   },
 
   {

@@ -10,7 +10,7 @@ const routes: Routes = [
   component:DriversComponent
 },
 {
-  path:'add-drivers',
+  path:'add-drivers/:action',
   component:AddDriversComponent
 },
 {

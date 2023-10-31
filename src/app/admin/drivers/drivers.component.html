@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-sm-auto hstack gap-2">
                         <button
-                            [routerLink]="['/admin/drivers/add-drivers']"
+                            [routerLink]="['/admin/drivers/add-drivers/create']"
                             type="button"
                             data-bs-toggle="modal"
                             id="create-btn"
@@ -63,13 +63,13 @@
                                                     <button 
                                                         class="btn btn-sm btn-success edit-item-btn"
                                                         data-bs-toggle="modal"
-                                                        data-bs-target="#showModal">Edit</button>
+                                                        data-bs-target="#showModal" (click)="editDriver(item._id)">Edit</button>
                                                 </div>
                                                 <div class="remove">
                                                     <button
                                                         class="btn btn-sm btn-danger remove-item-btn"
                                                         data-bs-toggle="modal"
-                                                        data-bs-target="#deleteRecordModal" >Remove</button>
+                                                        data-bs-target="#deleteRecordModal" (click)="removeDriver(item._id)" >Remove</button>
                                                 </div>
                                             </div>
                                         </td>

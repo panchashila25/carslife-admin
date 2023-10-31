@@ -13,17 +13,22 @@ export class DriversComponent implements OnInit {
   constructor(public api:ApiService,public route:Router,public routes:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.routes.queryParams.subscribe((data:any)=>{
-     console.log(data)
-      this.routesData=JSON.parse(data.data)
-    })
-
-
 this.api.getAllDrivers({}).subscribe((cdata)=>{
   this.list=cdata.data
   console.log(this.list)
 
 })
+  }
+  editDriver(data_id:any){
+    this.route.navigate(['/admin/drivers/add-drivers/edit'],{
+      queryParams:{id:data_id}
+    })
+
+  }
+  removeDriver(data_id:any){
+    this.api.deleteDriver(data_id).subscribe((cdata:any)=>{
+            this.list=cdata.data
+    })
   }
 
 }
