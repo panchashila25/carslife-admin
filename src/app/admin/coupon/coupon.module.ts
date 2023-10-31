@@ -5,6 +5,7 @@ import { CouponRoutingModule } from './coupon-routing.module';
 import { CouponComponent } from './coupon.component';
 import { AddCouponComponent } from './add-coupon/add-coupon.component';
 import { FormsModule } from '@angular/forms';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     CouponRoutingModule,
     FormsModule,
+    NgbModalModule
     
   ]
 })
