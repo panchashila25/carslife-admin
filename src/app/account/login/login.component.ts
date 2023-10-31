@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { AuthenticationService } from 'src/app/core/services/auth.service';
 // Login Auth
-import { environment } from '../../../environments/environment';
-import { AuthenticationService } from '../../core/services/auth.service';
+
 import { first } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -69,7 +68,7 @@ export class LoginComponent implements OnInit {
 
       this.authenticationService.login(uv).subscribe((cData: any) => {
         console.log(cData)
-        this.router.navigate(["/dashboard"])
+        this.router.navigate(["/admin/dashboard"])
        /* if(userObject.email=="admin@themesbrand.com")
         {
 

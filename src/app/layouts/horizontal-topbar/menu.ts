@@ -6,42 +6,67 @@ export const AdminMENU: MenuItem[] = [
     id: 2,
     label: 'Dashboard',
     icon: 'ri-dashboard-2-line',
-    link: '/admin/dashboard',
+    link: '/dashboard',
   },
   {
     id: 8,
-    label: 'Orders',
+    label: 'Coupon',
     icon: 'ri-apps-2-line',
-    link: '/admin/orders',
+    link: '/admin/add-coupon',
   },
 
   {
     id: 55,
     label: 'Users',
     icon: 'ri-account-circle-line',
-    link: '/admin/usermaster',
+    link: '/admin/users',
   },
   {
     id: 55,
-    label: 'Items',
+    label: 'Booking',
     icon: 'bx bx-shopping-bag fs-22',
-    link: '/admin/itemmaster',
+    link: '/admin/bookings',
+  },
+  {
+    id: 55,
+    label: 'Drivers',
+    icon: 'bx bx-shopping-bag fs-22',
+    link: '/admin/drivers',
   },
 ]
 
 export const UserMENU: MenuItem[] = [
-  
   {
-    id: 2,
-    label: 'Dashboard',
-    icon: 'ri-dashboard-2-line',
-    link: '/user/dashboard',
-  },
-  {
-    id: 8,
-    label: 'Orders',
-    icon: 'ri-apps-2-line',
-    link: '/user/order',
-  },
+ 
+  id: 2,
+  label: 'Dashboard',
+  icon: 'ri-dashboard-2-line',
+  link: '/dashboard',
+},
+{
+  id: 8,
+  label: 'Coupon',
+  icon: 'ri-apps-2-line',
+  link: '/admin/add-coupon',
+},
+
+{
+  id: 55,
+  label: 'Users',
+  icon: 'ri-account-circle-line',
+  link: '/admin/users',
+},
+{
+  id: 55,
+  label: 'Booking',
+  icon: 'bx bx-shopping-bag fs-22',
+  link: '/admin/bookings',
+},
+{
+  id: 55,
+  label: 'Drivers',
+  icon: 'bx bx-shopping-bag fs-22',
+  link: '/admin/drivers',
+},
 
 ]
