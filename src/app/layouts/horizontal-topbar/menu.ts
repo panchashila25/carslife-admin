@@ -6,7 +6,7 @@ export const AdminMENU: MenuItem[] = [
     id: 2,
     label: 'Dashboard',
     icon: 'ri-dashboard-2-line',
-    link: '/dashboard',
+    link: '/admin/dashboard',
   },
   {
     id: 8,
