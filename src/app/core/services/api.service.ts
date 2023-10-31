@@ -40,8 +40,8 @@ register(data:any){
 
 
   // Create Itom
-  createItem(data: any) {
-    return this.http.post < any > (`${environment.baseURL}item`, data, {
+  createDriver(data: any) {
+    return this.http.post < any > (`${environment.baseURL}driver`, data, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -54,8 +54,8 @@ register(data:any){
 
 
 // Get all Itom
-  gatAllItem(data:any) {
-    return this.http.post < any > (`${environment.baseURL}item/get`,data, {
+  getAllDrivers(data:any) {
+    return this.http.post < any > (`${environment.baseURL}driver/get`,data, {
       headers: {
         'Content-Type': 'application/json'
       }
