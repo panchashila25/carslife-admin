@@ -1,1 +1,201 @@
-<p>dashboard works!</p>
+<div class="row row-cols-xxl-5 row-cols-lg-3 row-cols-sm-2 row-cols-1">
+    <div class="col">
+        <div class="card">
+            <div class="card-body d-flex">
+                <div class="flex-grow-1">
+                    <h4>1000</h4>
+                    <h6 class="text-muted fs-13 mb-0">Total bookings</h6>
+                </div>
+                <div class="flex-shrink-0 avatar-sm">
+                    <div class="avatar-title bg-soft-warning text-warning fs-22 rounded">
+                        <i class="ri-contacts-book-fill "></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--end col-->
+    <div class="col">
+        <div class="card">
+            <div class="card-body d-flex">
+                <div class="flex-grow-1">
+                    <h4>100</h4>
+                    <h6 class="text-muted fs-13 mb-0">Total Divers</h6>
+                </div>
+                <div class="flex-shrink-0 avatar-sm">
+                    <div class="avatar-title bg-soft-success text-success fs-22 rounded">
+                        <i class=" ri-taxi-fill"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--end col-->
+    <div class="col">
+        <div class="card">
+            <div class="card-body d-flex">
+                <div class="flex-grow-1">
+                    <h4>1500</h4>
+                    <h6 class="text-muted fs-13 mb-0">Total users</h6>
+                </div>
+                <div class="flex-shrink-0 avatar-sm">
+                    <div class="avatar-title bg-soft-info text-info fs-22 rounded">
+                        <i class="ri-team-fill"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--end col-->
+
+
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Latest User </h4>
+                <div class="flex-shrink-0">
+                    <div class="form-check form-switch form-switch-right form-switch-md">
+                        <label for="default-showcode" class="form-label text-muted"></label>
+                        <!-- <input class="form-check-input code-switcher" type="checkbox" id="default-showcode"> -->
+                    </div>
+                </div>
+            </div><!-- end card header -->
+            <div class="card-body">
+                <div id="customerList">
+                    <div class="row g-4 mb-3">
+
+
+                        <div class="table-responsive table-card mt-3 mb-1">
+                            <table class="table">
+                                
+                                <thead>
+                                    <tr class="bg-light text-muted ">
+                                        <th scope="col" style="width: 50px;"></th>
+                                        <th class="sort" data-sort="no">User Name</th><br>
+                                        <th class="sort" data-sort="city">Driver Name</th><br>
+                                        <th class="sort" data-sort="carNo">Mobile No</th><br>
+                                        <th class="sort" data-sort="carNo">Email-ID</th><br>
+                                        <th class="sort" data-sort="carNo">Age</th><br>
+                                        <th class="sort" data-sort="status"> Address</th><br>
+                                        <th class="sort" data-sort="status">Identity Proof</th><br>
+                                        <th class="sort">Driving License</th><br>
+                                        <th class="sort">Picked Address</th><br>
+                                        <th class="sort">Droped Address</th><br>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row justify-content-md-between align-items-md-center">
+                            <div class="col-sm-12 col-md-5">
+                                <div class="dataTables_info mb-2" id="tickets-table_info" role="status"
+                                    aria-live="polite">
+                                    Showing entries
+                                </div>
+                            </div>
+                            <!-- Pagination -->
+                            <div class="col-sm-12 col-md-5">
+                                <div class="text-md-right float-md-end listjs-pagination"></div>
+                            </div>
+                            <!-- End Pagination -->
+                        </div>
+                    </div>
+                </div>
+                <!-- end card -->
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
+
+
+
+
+
+
+
+
+
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Booking User </h4>
+                <div class="flex-shrink-0">
+                    <div class="form-check form-switch form-switch-right form-switch-md">
+                        <label for="default-showcode" class="form-label text-muted"></label>
+                        <!-- <input class="form-check-input code-switcher" type="checkbox" id="default-showcode"> -->
+                    </div>
+                </div>
+            </div><!-- end card header -->
+            <div class="card-body">
+                <div id="customerList">
+                    <div class="row g-4 mb-3">
+
+
+                        <div class="table-responsive table-card mt-3 mb-1">
+                            <table class="table">
+                                <thead>
+                                    <tr class="bg-light text-muted">
+                                        <th scope="col" style="width: 50px;"></th>
+                                        <th class="sort" data-sort="User Name">User Name</th>
+                                        <th class="sort" data-sort="Driver Name">Driver Name</th>
+                                        <th class="sort" data-sort="From Date">From Date</th>
+                                        <th class="sort" data-sort="To Date">To Date</th>
+                                        <th class="sort" data-sort="Location">Location</th>
+                                        <th class="sort" data-sort="Picked Address">Picked Address</th>
+                                        <th class="sort" data-sort="Droped Address">Droped Address</th>
+                                        <th class="sort"data-sort="Droped Address">Booking Id</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row justify-content-md-between align-items-md-center">
+                            <div class="col-sm-12 col-md-5">
+                                <div class="dataTables_info mb-2" id="tickets-table_info" role="status"
+                                    aria-live="polite">
+                                    Showing entries
+                                </div>
+                            </div>
+                            <!-- Pagination -->
+                            <div class="col-sm-12 col-md-5">
+                                <div class="text-md-right float-md-end listjs-pagination"></div>
+                            </div>
+                            <!-- End Pagination -->
+                        </div>
+                    </div>
+                </div>
+                <!-- end card -->
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
