@@ -41,7 +41,6 @@ export class AddDriversComponent implements OnInit {
         this.routes.queryParams.subscribe((fData:any)=>{
           this.id=fData.id;
           this.api.getAllDrivers({_id:fData.id}).subscribe((cdata:any)=>{
-console.log(cdata)
             this.name=cdata.data[0].name;
             this.mobile=cdata.data[0].mobile;
             this.email=cdata.data[0].email;
@@ -49,20 +48,29 @@ console.log(cdata)
             this.carCategory=cdata.data[0].carCategory;
             this.Age=cdata.data[0].age;
             this.LicenseNo=cdata.data[0].licenseno;
-            this.LicenseDocument=cdata.data[0].licenseDoc
+            this.LicenseDocument=cdata.data[0].personalDocument
             this.Address=cdata.data[0].address;
             this.GovernmentID=cdata.data[0].govId;
             this.Carname=cdata.data[0].carName;
             this.CarNo=cdata.data[0].carNo;
-            this.CarDoc=cdata.data[0].carDoc;
+            this.CarDocument=cdata.data[0].carDocument;
           })
           console.log(fData)
         })
       }
     })
   }
+
   submit(){
-  
+    if(this.action == 'create'){
+      this.createDriver();
+    }else{
+      this.editData();
+    }
+
+    
+  }
+  createDriver(){
     const data=JSON.stringify({
       name:this.name,
       mobile:this.mobile,
@@ -81,11 +89,10 @@ console.log(cdata)
     })
     this.api.createDriver(data).subscribe((cdata)=>{
         console.log(cdata)
+        this.route.navigate(['/admin/drivers'])
 
     })
-    this.route.navigate(['/admin/drivers'],{
-      queryParams:{data:data}
-    })
+    
 
   }
   editData(){
@@ -107,7 +114,7 @@ console.log(cdata)
     })
     this.api.updateDriver(this.id,data).subscribe((cdata)=>{
       console.log(cdata)
-
+      this.route.navigate(['/admin/drivers'])
     })
     
 
