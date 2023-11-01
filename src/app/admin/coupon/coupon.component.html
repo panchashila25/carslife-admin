@@ -11,10 +11,10 @@
 
                     </div>
                     <div class="col-sm-auto hstack gap-2">
-                        <button (click)="openModal(addContent)" type="button" data-bs-toggle="modal"
+                        <button (click)="openModal(addContent,'')" type="button" data-bs-toggle="modal"
                             id="create-btn" data-bs-target="#showModal" class="btn btn-primary add-btn float-right">
                             <i class="ri-add-line align-bottom me-1 "></i>
-                            Add Contact</button>
+                            Add Coupon</button>
                     </div>
                 </div>
 
@@ -32,9 +32,9 @@
                                 <thead>
                                     <tr class="bg-light text-muted ">
                                         <th scope="col " style="width: 50px;"></th>
-                                        <th class="sort" data-sort="no">Coupon-Name</th><br>
-                                        <th class="sort" data-sort="city">Coupon-Code</th><br>
-                                        <th class="sort" data-sort="carNo">Discount</th><br>
+                                        <th class="sort" data-sort="no">Coupon-Name</th>
+                                        <th class="sort" data-sort="city">Coupon-Code</th>
+                                        <th class="sort" data-sort="carNo">Discount</th>
                                         <th class="sort" data-sort="carNo">From Date</th>
                                         <th class="sort" data-sort="carNo">To Date</th>
                                         <th class="sort" data-sort="carNo">Action</th>
@@ -45,28 +45,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let item of list">
                                         <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td class="status">
-                                            <!-- <span [class]="item.user?.status == 'Active'?'badge-soft-success':'badge-soft-danger'" class="badge text-uppercase">{{item.user?.status}}</span> -->
-                                        </td>
-
-                                        <td _ngcontent-eqy-c114="">
+                                        <td>{{item.couponName}}</td>
+                                        <td>{{item.couponCode}}</td>
+                                        <td>{{item.discount}}</td>
+                                        <td>{{item.fromDate}}</td>
+                                        <td>{{item.toDate}}</td>
+                                    
+                                        <td >
                                             <div _ngcontent-eqy-c114="" class="d-flex gap-2">
                                                 <div _ngcontent-eqy-c114="" class="edit"><button _ngcontent-eqy-c114=""
                                                         data-bs-toggle="modal" data-bs-target="#showModal"
-                                                        class="btn btn-sm btn-success edit-item-btn">Edit</button></div>
+                                                        class="btn btn-sm btn-success edit-item-btn"   (click)="openModal(addContent,item)">Edit</button></div>
                                                 <div _ngcontent-eqy-c114="" class="remove"><button
                                                         _ngcontent-eqy-c114="" data-bs-toggle="modal"
                                                         data-bs-target="#deleteRecordModal"
-                                                        class="btn btn-sm btn-danger remove-item-btn">Remove</button>
+                                                        class="btn btn-sm btn-danger remove-item-btn" (click)="removeCoupon(item._id)">Remove</button>
                                                 </div>
                                             </div>
                                         </td>
@@ -102,7 +97,7 @@
 <ng-template #addContent let-modal>
         <div class="modal-content">
             <div class="modal-header bg-info-subtle p-3">
-                <h5 id="exampleModalLabel" class="modal-title">Add Contact</h5>
+                <h5 id="exampleModalLabel" class="modal-title">Add Coupon</h5>
                 <button type="button" data-bs-dismiss="modal" (click)="modal.dismiss()" aria-label="Close"
                     id="close-modal" class="btn-close"></button>
             </div>
@@ -115,67 +110,71 @@
                         <div class="col-lg-12">
                             <div class="text-center">
                                 <div class="position-relative d-inline-block"><input
-                                        _ngcontent-ng-c609779689="" type="hidden" name="id" value="" formcontrolname="ids"
+                                        type="hidden" name="id" value="" formcontrolname="ids"
                                         class="ng-untouched ng-pristine ng-valid">
-                                    <div _ngcontent-ng-c609779689="" class="position-absolute bottom-0 end-0"><label
-                                            _ngcontent-ng-c609779689="" for="customer-image-input" data-bs-toggle="tooltip"
+                                    <div class="position-absolute bottom-0 end-0"><label
+                                            for="customer-image-input" data-bs-toggle="tooltip"
                                             data-bs-placement="right" title="Select Image" class="mb-0">
-                                            <div _ngcontent-ng-c609779689="" class="avatar-xs cursor-pointer">
-                                                <div _ngcontent-ng-c609779689=""
+                                            <div class="avatar-xs cursor-pointer">
+                                                <div
                                                     class="avatar-title bg-light border rounded-circle text-muted">
-                                                    <i _ngcontent-ng-c609779689="" class="ri-image-fill"></i>
+                                                    <i class="ri-image-fill"></i>
                                                 </div>
                                             </div>
-                                        </label><input _ngcontent-ng-c609779689="" id="customer-image-input" type="file"
+                                        </label><input id="customer-image-input" type="file"
                                             accept="image/png, image/gif, image/jpeg" formcontrolname="image_src"
                                             class="form-control d-none"><!----></div>
-                                    <div _ngcontent-ng-c609779689="" class="avatar-lg p-1">
-                                        <div _ngcontent-ng-c609779689="" class="avatar-title bg-light rounded-circle"><img
-                                                _ngcontent-ng-c609779689="" src="assets/images/users/user-dummy-img.jpg"
+                                    <div class="avatar-lg p-1">
+                                        <div class="avatar-title bg-light rounded-circle"><img
+                                                src="assets/images/users/user-dummy-img.jpg"
                                                 id="customer-img" class="avatar-md rounded-circle object-fit-cover"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div _ngcontent-ng-c609779689=""><label _ngcontent-ng-c609779689="" for="n-field"
-                                    class="form-label">Coupon Number</label><input _ngcontent-ng-c609779689="" type="text"
+                            <div><label for="n-field"
+                                    class="form-label">Coupon Number</label><input type="text"
                                     id="customername-field" placeholder="Enter Coupon number" required=""
                                     formcontrolnumber="number"
-                                    class="form-control ng-untouched ng-pristine ng-invalid"><!----></div>
+                                    class="form-control ng-untouched ng-pristine ng-invalid" [(ngModel)]="couponCode" [ngModelOptions]="{standalone: true}"><!----></div>
                         </div>
-                        <div _ngcontent-ng-c609779689="" class="col-lg-12">
-                            <div _ngcontent-ng-c609779689=""><label _ngcontent-ng-c609779689="" for="coupon_name-field"
-                                    class="form-label">Coupon Name</label><input _ngcontent-ng-c609779689="" type="text"
+                        <div class="col-lg-12">
+                            <div><label for="coupon_name-field"
+                                    class="form-label">Coupon Name</label>
+                                    <input type="text"
                                     id="coupon_name-field" placeholder="Enter Coupon name" required=""
                                     formcontrolname="company"
-                                    class="form-control ng-untouched ng-pristine ng-invalid"><!----></div>
+                                    class="form-control ng-untouched ng-pristine ng-invalid" [(ngModel)]="couponName" [ngModelOptions]="{standalone: true}">
+                                </div>
                         </div>
-                        <div _ngcontent-ng-c609779689="" class="col-lg-12">
-                            <div _ngcontent-ng-c609779689=""><label _ngcontent-ng-c609779689="" for="Discount-field"
-                                    class="form-label">Discount</label><input _ngcontent-ng-c609779689="" type="text"
+                        <div class="col-lg-12">
+                            <div><label for="Discount-field"
+                                    class="form-label">Discount</label><input type="text"
                                     id="designation-field" placeholder="Enter Discount" required=""
                                     formcontrolname="Discount"
-                                    class="form-control ng-untouched ng-pristine ng-invalid"><!----></div>
+                                    class="form-control ng-untouched ng-pristine ng-invalid" [(ngModel)]="discount" [ngModelOptions]="{standalone: true}"><!----></div>
                         </div>
-                        <div _ngcontent-ng-c609779689="" class="col-lg-12">
-                            <div _ngcontent-ng-c609779689=""><label _ngcontent-ng-c609779689="" for="From Date-field"
-                                    class="From Date-label">From Date</label><input _ngcontent-ng-c609779689="" type="text"
+                        <div class="col-lg-12">
+                            <div><label for="From Date-field"
+                                    class="From Date-label">From Date</label><input type="date"
                                     id="From Date-field" placeholder="Enter From Date" required=""
-                                    formcontrolname="From Date"
-                                    class="form-control ng-untouched ng-pristine ng-invalid"><!----></div>
+    
+                                    class="form-control ng-untouched ng-pristine ng-invalid" [(ngModel)]="fromDate" [ngModelOptions]="{standalone: true}"></div>
                         </div>
-                        <div _ngcontent-ng-c609779689="" class="col-lg-6">
-                            <div _ngcontent-ng-c609779689=""><label _ngcontent-ng-c609779689="" for="To Date-field"
-                                    class="To Date-label">To Date</label><input _ngcontent-ng-c609779689="" type="text"
+                        <div class="col-lg-6">
+                            <div><label for="To Date-field"
+                                    class="To Date-label">To Date</label><input type="date"
                                     id="phone-field" placeholder="Enter To Date" required="" formcontrolname="To Date"
-                                    class="form-control ng-untouched ng-pristine ng-invalid"><!----></div>
+                                    class="form-control ng-untouched ng-pristine ng-invalid" [(ngModel)]="toDate" [ngModelOptions]="{standalone: true}"><!----></div>
                         </div>
     
     
-                        <div _ngcontent-ng-c609779689="" class="modal-footer">
-                            <div _ngcontent-ng-c609779689="" class="hstack gap-2 justify-content-end"><button
-                                [routerLink]="['/admin/coupon']"    _ngcontent-ng-c609779689="" type="button" data-bs-dismiss="modal"
-                                    class="btn btn-light">Close</button><button  [routerLink]="['/admin/coupon']"_ngcontent-ng-c609779689="" type="submit"
-                                    id="add-btn" class="btn btn-success">Add list</button></div>
+                        <div class="modal-footer">
+                            <div class="hstack gap-2 justify-content-end"><button
+                            (click)="modal.dismiss()"  type="button" data-bs-dismiss="modal"
+                                    class="btn btn-light">Close</button>
+                                    <button type="submit"
+                                    id="add-btn" class="btn btn-success" (click)="createCoupon()">Add list</button>
+                                </div>
                         </div>
     
     
