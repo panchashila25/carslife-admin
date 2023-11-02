@@ -18,36 +18,21 @@ import { Role } from './core/models/role.module';
 
 const routes: Routes = [
   {
-  path: '',
-    redirectTo: "admin",
-    "pathMatch": "full"
+    path:"",
+    redirectTo:"admin",
+    pathMatch:"full"
   },
   {
     path: 'auth',
     loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
-    //canActivate:[AuthGuard]
   },
   {
-    path:"bookings",
-    loadChildren:() => import('./bookings/bookings.module'). then(m => m.BookingsModule)
+    path: 'admin',
+    component: LayoutComponent,
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate:[AuthGuard],
+    data:{roles:Role.Admin}
   },
-  {
-    path:"coupon",
-    loadChildren:() => import('./coupon/coupon.module'). then(m => m.CouponModule) 
-   },
-   {
-    path:'dashboard',
-    component:LayoutComponent,
-    loadChildren:() => import('./dashboard/dashboard.module'). then(m=> m.DashboardModule)
-   },
-   {
-    path:'drivers',
-    loadChildren:() => import('./drivers/drivers.module'). then(m => m.DriversModule)
-   },
-   {
-    path:'users',
-    loadChildren:() => import('./users/users.module'). then(m => m.UsersModule)
-   }
 
 ];
 

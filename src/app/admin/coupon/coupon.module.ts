@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { CouponRoutingModule } from './coupon-routing.module';
 import { CouponComponent } from './coupon.component';
-import { AddCouponComponent } from '../add-coupon/add-coupon.component';
+import { AddCouponComponent } from './add-coupon/add-coupon.component';
+import { FormsModule } from '@angular/forms';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -14,6 +16,12 @@ import { AddCouponComponent } from '../add-coupon/add-coupon.component';
   imports: [
     CommonModule,
     CouponRoutingModule,
+    FormsModule,
+    NgbModalModule
+    
+  ],
+  providers:[
+    DatePipe
   ]
 })
 export class CouponModule { }

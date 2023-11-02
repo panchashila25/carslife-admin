@@ -39,9 +39,9 @@ register(data:any){
 }
 
 
-  // Create Itom
-  createItem(data: any) {
-    return this.http.post < any > (`${environment.baseURL}item`, data, {
+  // Create driver
+  createDriver(data: any) {
+    return this.http.post < any > (`${environment.baseURL}driver`, data, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -53,9 +53,9 @@ register(data:any){
 
 
 
-// Get all Itom
-  gatAllItem(data:any) {
-    return this.http.post < any > (`${environment.baseURL}item/get`,data, {
+// Get all driver
+  getAllDrivers(data:any) {
+    return this.http.post < any > (`${environment.baseURL}driver/get`,data, {
       headers: {
         'Content-Type': 'application/json'
       }
@@ -66,9 +66,9 @@ register(data:any){
   }
 
 
-  // Update Itom
-  updateItem(id:any,data:any){
-    return this.http.put<any>(`${environment.baseURL}item/`+id,data,{
+  // Update driver
+  updateDriver(id:any,data:any){
+    return this.http.put<any>(`${environment.baseURL}driver/`+id,data,{
       headers: {
         'Content-Type': 'application/json'
       }
@@ -80,9 +80,9 @@ register(data:any){
 
 
 
-// DeleteItom
-  deleteItem(id:any){
-    return this.http.delete<any>(`${environment.baseURL}item/`+id,{
+// DeleteDriver
+  deleteDriver(id:any){
+    return this.http.delete<any>(`${environment.baseURL}driver/`+id,{
   })
   .pipe(map((data:any)=>{
     return data;
@@ -144,9 +144,9 @@ register(data:any){
 
 
 
-// Get all Orders
-createOrders(data:any) {
-  return this.http.post < any > (`${environment.baseURL}orders`, data,{
+// Get all Coupon
+createCoupon(data:any) {
+  return this.http.post < any > (`${environment.baseURL}coupons`, data,{
     headers: {
       'Content-Type': 'application/json'
     }
@@ -158,9 +158,12 @@ createOrders(data:any) {
 }
 
 
-  // Get Orders
-  gatAllOrders() {
-    return this.http.get < any > (`${environment.baseURL}orders`, {
+  // Get Coupon
+  getAllCoupon(data:any) {
+    return this.http.post < any > (`${environment.baseURL}coupons/get`,data,{
+      headers: {
+        'Content-Type': 'application/json'
+      }
       })
       .pipe(map((data: any) => {
         return data;
@@ -169,9 +172,9 @@ createOrders(data:any) {
 
 
 
-  // Update Orders
-  updateOrders(id:any,data:any){
-    return this.http.put<any>(`${environment.baseURL}orders/`+id,data,{
+  // Update Coupon
+  updateCoupon(id:any,data:any){
+    return this.http.put<any>(`${environment.baseURL}coupons/`+id,data,{
       headers: {
         'Content-Type': 'application/json'
       }
@@ -183,14 +186,21 @@ createOrders(data:any) {
 
 
 
-// Delete Orders
-deleteOrders(id:any){
-  return this.http.delete<any>(`${environment.baseURL}orders/`+id,{
+// Delete Coupon
+deleteCoupon(id:any){
+  return this.http.delete<any>(`${environment.baseURL}coupons/`+id,{
 })
 .pipe(map((data:any)=>{
   return data;
 }))
 }
+
+onupload(data: any){
+  return this.http.post<any>(`${environment.baseURL}comman/upload`, data)
+    .pipe(map(data => {
+      return data;
+    }));
+  }
 
 
 
