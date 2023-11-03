@@ -11,20 +11,27 @@ export class AddDriversComponent implements OnInit {
 
   @ViewChild('carDocChild') carDocChild !:ElementRef;
   @ViewChild('personalDocChild') personalDocChild !:ElementRef;
-  name:any ="";
-  email:any="";
-  password:any="";
-  mobile:any="";
-  Address:any="";
+  Name:any ="";
+  LastName:any="";
+  EmailId:any="";
+  PhoneNumber:any="";
+  Age:any="";
+  Gender:any="";
+  AadharCardNo:any="";
   LicenseNo:any="";
   LicenseDocument:any="";
-  GovernmentID:any="";
-  Age:any="";
+  PoliceVerifyDocument:any="";
+  ModelName:any="";
   CarDocument:any="";
-  Carname:any="";
-  CarNo:any="";
-  CarDoc:any="";
-  carCategory:any="";
+  CarPhoto:any="";
+  BrandName:any="";
+  PurchaesYear:any="";
+  RCNo:any="";
+  PermantAddress:any="";
+  City:any="";
+  State:any="";
+  PinCode:any="";
+  DOB:any="";
   action='create';
   id:any='';
   
@@ -41,19 +48,25 @@ export class AddDriversComponent implements OnInit {
         this.routes.queryParams.subscribe((fData:any)=>{
           this.id=fData.id;
           this.api.getAllDrivers({_id:fData.id}).subscribe((cdata:any)=>{
-            this.name=cdata.data[0].name;
-            this.mobile=cdata.data[0].mobile;
-            this.email=cdata.data[0].email;
-            this.password=cdata.data[0].password
-            this.carCategory=cdata.data[0].carCategory;
+            this.Name=cdata.data[0].name;
+            this.EmailId=cdata.data[0].email;
+            this.PhoneNumber=cdata.data[0].mobile;
+            this.AadharCardNo=cdata.data[0].aadharCardNo;
             this.Age=cdata.data[0].age;
             this.LicenseNo=cdata.data[0].licenseno;
-            this.LicenseDocument=cdata.data[0].personalDocument
-            this.Address=cdata.data[0].address;
-            this.GovernmentID=cdata.data[0].govId;
-            this.Carname=cdata.data[0].carName;
-            this.CarNo=cdata.data[0].carNo;
+            this.LicenseDocument=cdata.data[0].licenseDoc;
+            this.PoliceVerifyDocument=cdata.data[0].policeVerifyDoc;
+            this.ModelName=cdata.data[0].modelName;
+            this.CarPhoto=cdata.data[0].photo;
+            this.BrandName=cdata.data[0].brandName;
             this.CarDocument=cdata.data[0].carDocument;
+            this.PurchaesYear=cdata.data[0].purchesYear;
+            this.PermantAddress=cdata.data[0].address;
+            this.City=cdata.data[0].city;
+            this.State=cdata.data[0].state;
+            this.PinCode=cdata.data[0].pinCode;
+            this.DOB=cdata.data[0].dob;
+            this.Gender=cdata.data[0].gender;
           })
           console.log(fData)
         })
@@ -72,21 +85,29 @@ export class AddDriversComponent implements OnInit {
   }
   createDriver(){
     const data=JSON.stringify({
-      name:this.name,
-      mobile:this.mobile,
-      email:this.email,
-      password:this.password,
-      carCategory:this.carCategory,
+      name:this.Name,
+      email:this.EmailId,
+      mobile:this.PhoneNumber,
       age:this.Age,
+      aadharCardNo:this.AadharCardNo,
       licenseno:this.LicenseNo,
-      address:this.Address,
-      govId:this.GovernmentID,
-      carName:this.Carname,
-      carNo:this.CarNo,
+      licenseDoc:this.LicenseDocument,
+      policeVerifyDoc:this.PoliceVerifyDocument,
+      modelName:this.ModelName,
+      photo:this.CarPhoto,
       carDocument:this.CarDocument,
-      personalDocument:this.LicenseDocument
+      brandName:this.BrandName,
+      purchesYear:this.PurchaesYear,
+      carNo:this.RCNo,
+      address:this.PermantAddress,
+      city:this.City,
+      state:this.State,
+      dob:this.DOB,
+      pincode:this.PinCode,
+      gender:this.Gender
 
     })
+    console.log(data)
     this.api.createDriver(data).subscribe((cdata)=>{
         console.log(cdata)
         this.route.navigate(['/admin/drivers'])
@@ -97,19 +118,26 @@ export class AddDriversComponent implements OnInit {
   }
   editData(){
     const data=JSON.stringify({
-      name:this.name,
-      mobile:this.mobile,
-      email:this.email,
-      password:this.password,
-      carCategory:this.carCategory,
+      name:this.Name,
+      email:this.EmailId,
+      mobile:this.PhoneNumber,
       age:this.Age,
+      aadharCardNo:this.AadharCardNo,
       licenseno:this.LicenseNo,
-      address:this.Address,
-      govId:this.GovernmentID,
-      carName:this.Carname,
-      carNo:this.CarNo,
+      licenseDoc:this.LicenseDocument,
+      policeVerifyDoc:this.PoliceVerifyDocument,
+      modelName:this.ModelName,
+      photo:this.CarPhoto,
       carDocument:this.CarDocument,
-      personalDocument:this.LicenseDocument
+      brandName:this.BrandName,
+      purchesYear:this.PurchaesYear,
+      carNo:this.RCNo,
+      address:this.PermantAddress,
+      city:this.City,
+      state:this.State,
+      dob:this.DOB,
+      pincode:this.PinCode,
+      gender:this.Gender
 
     })
     this.api.updateDriver(this.id,data).subscribe((cdata)=>{
@@ -144,5 +172,34 @@ export class AddDriversComponent implements OnInit {
         }, 3000);
       });
   }
+  uploadCarphoto(event:any){
+    let fileData: FormData = new FormData();
+    fileData.append('file', event.target.files[0]);
+      this.api.onupload(fileData).subscribe((cData: any) => {
+        console.log(cData)
+        this.CarPhoto = cData.data.url;
+  
+        setTimeout(() => {
+          this.personalDocChild.nativeElement.value = "";
+        }, 3000);
+      });
 
+  }
+  calculateAge() {
+    if (this.DOB) {
+      const today = new Date();
+      const birthDate = new Date(this.DOB);
+      const ageDiff = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        this.Age = ageDiff - 1;
+      } else {
+        this.Age = ageDiff;
+      }
+    }
+  }
+  
 }
+
+
+

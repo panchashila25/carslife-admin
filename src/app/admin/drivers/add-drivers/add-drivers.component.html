@@ -16,34 +16,29 @@
                     <h5>Personal Deatils</h5>
                     <div class="row">
                        
+                        <div class="col-lg-12 col-sm-12">
+                            <div class="mb-3">
+                                <label for="name" class="form-label"> Name</label>
+                                <input type="text" class="form-control" placeholder="Enter your Name" id="First Name" [(ngModel)]="Name">
+                            </div>
+                        </div>
+                        
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
-                                <label for="Address" class="form-label">First Name</label>
-                                <input type="email" class="form-control" placeholder="Enter your Address" id="Address" [(ngModel)]="Address">
+                                <label for="EmailId" class="form-label">Email Id</label>
+                                <input type="text" class="form-control" placeholder="Enter your Email Id " id="Email Id" [(ngModel)]="EmailId">
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
-                                <label for="IDnoInput" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" placeholder="Last Name" id="IDnoInput" [(ngModel)]="GovernmentID">
+                                <label for="PhoneNumber" class="form-label">Phone Number</label>
+                                <input type="text" class="form-control" placeholder=" Enter your Phone Number" id="Phone Number" [(ngModel)]="PhoneNumber">
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
-                                <label for="IDnoInput" class="form-label">Email Id</label>
-                                <input type="text" class="form-control" placeholder="Enter your ID " id="IDnoInput" [(ngModel)]="GovernmentID">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="mb-3">
-                                <label for="IDnoInput" class="form-label">Phone Number</label>
-                                <input type="text" class="form-control" placeholder="" id="IDnoInput" [(ngModel)]="GovernmentID">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="mb-3">
-                                <label for="IDnoInput" class="form-label">Gender</label>
-                                <select _ngcontent-ng-c1661926025="" id="inputState" data-choices="" data-choices-sorting="true" class="form-select">
+                                <label for="GenderInput" class="form-label" >Gender</label>
+                                <select _ngcontent-ng-c1661926025="" id="Genderinput" data-choices="" data-choices-sorting="true" class="form-select" [(ngModel)]="Gender">
                                     <option _ngcontent-ng-c1661926025="" selected="">Choose...</option>
                                     <option _ngcontent-ng-c1661926025="" >Male</option>
                                     <option _ngcontent-ng-c1661926025="" >Female</option>
@@ -55,9 +50,12 @@
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
-                                <label for="LicenseNoInput" class="form-label">DOB</label>
-                                <input _ngcontent-ng-c1558678681="" type="date" id="exampleInputdate" class="form-control">
+                                <label for="DOBNoInput" class="form-label">DOB</label>
+                                <input _ngcontent-ng-c1558678681="" type="date" id="exampleInputdate" class="form-control"[(ngModel)]="DOB">
                                 
+                               <div *ngIf="DOB">
+                                    <p>{{ calculateAge() }}</p>
+                              </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
@@ -69,14 +67,14 @@
                         
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
-                                <label for="AgeInput" class="form-label">AadharCard No</label>
-                                <input type="text" class="form-control" placeholder="Enter your Age" id="AgeInput" [(ngModel)]="Age">
+                                <label for="AadharCard No" class="form-label">AadharCard No</label>
+                                <input type="text" class="form-control" placeholder="Enter your AadharCard No" id="AadharCard No" [(ngModel)]="AadharCardNo">
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
-                                <label for="AgeInput" class="form-label">License No</label>
-                                <input type="text" class="form-control" placeholder="Enter your Age" id="AgeInput" [(ngModel)]="Age">
+                                <label for="License No" class="form-label">License No</label>
+                                <input type="text" class="form-control" placeholder="Enter your License No" id="License No" [(ngModel)]="LicenseNo">
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
@@ -87,8 +85,8 @@
                         </div> 
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
-                                <label for="LicenseDocumentInput" class="form-label">Police Verify Document</label>
-                                <input type="file" class="form-control"  #personalDocChild placeholder="upload your Document file" id="LicensedocumentInput" (change)="uploadLicDoc($event)">
+                                <label for="Police Verify Document" class="form-label">Police Verify Document</label>
+                                <input type="file" class="form-control"  #personalDocChild placeholder="upload your Document file" id="Police Verify Document" (change)="uploadLicDoc($event)">
                             </div>
                         </div> 
 
@@ -103,26 +101,26 @@
                     <div class="row">
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
-                                <label for="carnameControlTextarea" class="form-label">Brand Name</label>
-                                <input type="text" class="form-control" placeholder="Enter your Car name" id="carname"[(ngModel)]="Carname">
+                                <label for="BrandNameControlTextarea" class="form-label">Brand Name</label>
+                                <input type="text" class="form-control" placeholder="Enter your Brand Name" id="BrandName"[(ngModel)]="BrandName">
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
-                                <label for="carnameControlTextarea" class="form-label">Model Name</label>
-                                <input type="text" class="form-control" placeholder="Enter your Car name" id="carname"[(ngModel)]="carCategory">
+                                <label for="ModelNameControlTextarea" class="form-label">Model Name</label>
+                                <input type="text" class="form-control" placeholder="Enter your Model Name" id="ModelName"[(ngModel)]="ModelName">
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
-                                <label for="CarNoInput" class="form-label">RC No</label>
-                                <input type="text" class="form-control" placeholder="Enter your Car No" id="CarNoInput"[(ngModel)]="CarNo">
+                                <label for="RCNoInput" class="form-label">RC No</label>
+                                <input type="text" class="form-control" placeholder="Enter your RC No" id="RCNoInput"[(ngModel)]="RCNo">
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
-                                <label for="CarNoInput" class="form-label"> Car Purchaes Year</label>
-                                <input type="text" class="form-control" placeholder="Enter your Car No" id="CarNoInput"[(ngModel)]="CarNo">
+                                <label for="CarPurchaesYearInput" class="form-label"> Car Purchaes Year</label>
+                                <input type="text" class="form-control" placeholder="Enter your Car Purchaes Year" id="CarPurchaesYearInput" [(ngModel)]="PurchaesYear">
                             </div>
                         </div>
                         <div class="col-lg-12 col-sm-12">
@@ -133,30 +131,22 @@
                         </div>
                         <div class="col-lg-12 col-sm-12">
                             <div class="mb-3">
-                                <label for="CarDocInput" class="form-label">Car Photo</label>
-                                <input type="file" class="form-control" #carDocChild placeholder="upload your Document" id="CardocInput" (change)="uploadCarDoc($event)">
+                                <label for="CarPhotoInput" class="form-label">Car Photo</label>
+                                <input type="file" class="form-control" #carDocChild placeholder="upload your Car Photo" id="CarPhotoInput" (change)="uploadCarphoto($event)">
                             </div>
                         </div>
                         
                     </div>
                 </div>
-
-
-
-
-
-
-
-                
-                    <div class="col-lg-6 col-sm-12" style="border-right: 1px solid gray;">
+               <div class="col-lg-6 col-sm-12" style="border-right: 1px solid gray;">
                         <h5>Address Details</h5>
                         <div class="row">
                            
                         
                             <div class="col-lg-12 col-sm-12">
                                 <div class="mb-3">
-                                    <label for="AgeInput" class="form-label">Permant Address 2</label>
-                                    <textarea _ngcontent-ng-c1661926025="" id="meassageInput" rows="3" placeholder="Enter your address" class="form-control"></textarea>
+                                    <label for="PermantAddressInput" class="form-label">Permant Address</label>
+                                    <textarea _ngcontent-ng-c1661926025="" id="meassageInput" rows="3" placeholder="Enter your Permant Address" class="form-control"[(ngModel)]="PermantAddress"></textarea>
                                     
                                   
                                 </div>
@@ -164,14 +154,14 @@
                           
                             <div class="col-lg-6 col-sm-12">
                                 <div class="mb-3">
-                                    <label for="AgeInput" class="form-label">City</label>
-                                    <input type="text" class="form-control" placeholder="Enter your city" id="AgeInput" [(ngModel)]="Age">
+                                    <label for="CityInput" class="form-label">City</label>
+                                    <input type="text" class="form-control" placeholder="Enter your city" id="AgeInput" [(ngModel)]="City">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-12">
                                 <div class="mb-3">
-                                    <label for="AgeInput" class="form-label">State</label>
-                                    <select _ngcontent-ng-c1661926025="" id="inputState" data-choices="" data-choices-sorting="true" class="form-select">
+                                    <label for="StateInput" class="form-label">State</label>
+                                    <select _ngcontent-ng-c1661926025="" id="inputState" data-choices="" data-choices-sorting="true" class="form-select"[(ngModel)]="State">
                                         <option _ngcontent-ng-c1661926025="" selected="">Choose...</option>
                                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -215,8 +205,8 @@
                             </div>
                             <div class="col-lg-6 col-sm-12">
                                 <div class="mb-3">
-                                    <label for="AgeInput" class="form-label">Pin Code</label>
-                                    <input type="text" class="form-control" placeholder="Enter your pin code" id="AgeInput" [(ngModel)]="Age">
+                                    <label for="PinCodeInput" class="form-label">Pin Code</label>
+                                    <input type="text" class="form-control" placeholder="Enter your pin code" id="PinCodeInput" [(ngModel)]="PinCode">
                                 </div>
                             </div>
                             
@@ -235,9 +225,6 @@
                     </div>
                 </div><!--end col-->
             </div><!--end row-->
-        
+        </div>
 
-
-    </div>
-</div>
 
