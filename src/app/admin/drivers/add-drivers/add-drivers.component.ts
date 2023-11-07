@@ -26,6 +26,9 @@ export class AddDriversComponent implements OnInit {
   CarPhoto:any="";
   BrandName:any="";
   PurchaesYear:any="";
+  PackagePrice:any="";
+  PackageKm:any="";
+  RatePerKm:any="";
   RCNo:any="";
   PermantAddress:any="";
   City:any="";
@@ -61,6 +64,9 @@ export class AddDriversComponent implements OnInit {
             this.BrandName=cdata.data[0].brandName;
             this.CarDocument=cdata.data[0].carDocument;
             this.PurchaesYear=cdata.data[0].purchesYear;
+            this.PackagePrice=cdata.data[0].packagePrice;
+            this.PackageKm=cdata.data[0].packageKm;
+            this.RatePerKm=cdata.data[0].ratePerKm;
             this.PermantAddress=cdata.data[0].address;
             this.City=cdata.data[0].city;
             this.State=cdata.data[0].state;
@@ -98,6 +104,9 @@ export class AddDriversComponent implements OnInit {
       carDocument:this.CarDocument,
       brandName:this.BrandName,
       purchesYear:this.PurchaesYear,
+      packagePrice:this.PackagePrice,
+      packageKm:this.PackageKm,
+      ratePerKm:this.RatePerKm,
       carNo:this.RCNo,
       address:this.PermantAddress,
       city:this.City,
@@ -131,6 +140,9 @@ export class AddDriversComponent implements OnInit {
       carDocument:this.CarDocument,
       brandName:this.BrandName,
       purchesYear:this.PurchaesYear,
+      packagePrice:this.PackagePrice,
+      packageKm:this.PackageKm,
+      ratePerKm:this.RatePerKm,
       carNo:this.RCNo,
       address:this.PermantAddress,
       city:this.City,
