@@ -173,7 +173,7 @@
                                 <div class="mb-3">
                                     <label for="StateInput" class="form-label">State</label>
                                     <select (change)="onStateChange($event)" id="inputState" data-choices="" data-choices-sorting="true" class="form-select"[(ngModel)]="State">
-                                        <option _ngcontent-ng-c1661926025="" selected="">Choose...</option>
+                                        <option  selected="">Choose...</option>
                                         <option *ngFor="let item of statesList" value="{{item.state}}">{{item.state}}</option>
                                     </select>
                                    
@@ -183,7 +183,7 @@
                                 <div class="mb-3">
                                     <label for="CityInput" class="form-label">City</label>
                                     <select id="inputState" data-choices="" data-choices-sorting="true" class="form-select"[(ngModel)]="City">
-                                        <option _ngcontent-ng-c1661926025="" selected="">Choose...</option>
+                                        <option  selected="">Choose...</option>
                                         <option *ngFor="let item of citiesList" value="{{item}}">{{item}}</option>
                                     </select>
                                 </div>

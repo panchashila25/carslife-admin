@@ -51,7 +51,7 @@ export class AddDriversComponent implements OnInit {
       if(pData.action =='create'){
         this.action='create'
       }
-      else{
+      else{ 
         this.action='edit'
         this.routes.queryParams.subscribe((fData:any)=>{
           this.id=fData.id;
