@@ -17,7 +17,8 @@ import { DriverDeatilsComponent } from './driver-deatils/driver-deatils.componen
   imports: [
     CommonModule,
     DriversRoutingModule,
-    FormsModule
+    FormsModule,
+    
   ]
 })
 export class DriversModule { }

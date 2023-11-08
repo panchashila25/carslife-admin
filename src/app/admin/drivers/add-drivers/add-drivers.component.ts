@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
-
+import { Location } from 'src/app/core/models/location'
 @Component({
   selector: 'app-add-drivers',
   templateUrl: './add-drivers.component.html',
@@ -9,6 +9,11 @@ import { ApiService } from 'src/app/core/services/api.service';
 })
 export class AddDriversComponent implements OnInit {
 
+
+  location = new Location();
+
+  statesList = this.location.list;
+  citiesList :any= []
   @ViewChild('carDocChild') carDocChild !:ElementRef;
   @ViewChild('personalDocChild') personalDocChild !:ElementRef;
   Name:any ="";
@@ -124,6 +129,12 @@ export class AddDriversComponent implements OnInit {
     })
     
 
+  }
+  onStateChange(event:any){
+    console.log(event.target.value);
+    let data = this.statesList.filter((res:any) => res.state == event.target.value)[0]
+    console.log(data);
+    this.citiesList = data.districts;
   }
   editData(){
     const data=JSON.stringify({
