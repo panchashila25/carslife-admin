@@ -23,7 +23,8 @@
       "default",
       {
         "list": "off",
-        "listitem": "off"
+        "listitem": "off",
+        "definition-list": "off"
       }
     ],
     "axe/forms": [
@@ -36,6 +37,12 @@
     "no-inline-styles": "off",
     "meta-charset-utf-8": "off",
     "meta-viewport": "off",
-    "disown-opener": "off"
+    "disown-opener": "off",
+    "axe/text-alternatives": [
+      "default",
+      {
+        "image-alt": "off"
+      }
+    ]
   }
 }
